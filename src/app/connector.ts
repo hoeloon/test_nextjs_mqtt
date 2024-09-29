@@ -30,9 +30,9 @@ export const connectClient = () => {
       resolve();
     });
 
-    client.on("error", (error: any) => {
+    client.on("error", (error: Error) => {
       console.log("MQTT Client Error:", error);
-      resolve(error);
+      reject(error);
     });
 
     client.on("offline", () => {
